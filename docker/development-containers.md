@@ -13,7 +13,7 @@ runs locally at `localhost:8000`
 ## Nodejs local
 
 ```
-docker run -it --rm -p 8080:8080 --name node8 --env PORT=8080 -w /app --mount type=bind,src="$PWD",dst=/app node:8-alpine
+docker run -it --rm -p 8080:8080 --name node8 --env PORT=8080 -w /app --mount type=bind,src="$PWD",dst=/app node:8-alpine sh
 ```
 
 ## Notes:
