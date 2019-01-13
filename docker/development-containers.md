@@ -5,10 +5,18 @@
 see https://hub.docker.com/\_/httpd/ and https://hub.docker.com/\_/php/
 
 ```
-docker run -d --rm -p 8000:80 --name myphp -v "$PWD":/var/www/html php:7.2-apache
+docker run -d --rm -p 8000:80 --name myphp -v "$PWD":/var/www/html trivaldock/php
 ```
 
 runs locally at `localhost:8000`
+
+---
+
+execute commands in running GRAV CMS app:
+
+```
+docker exec myphp bin/gpm install antimatter
+```
 
 ## Nodejs local
 

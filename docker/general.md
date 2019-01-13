@@ -31,3 +31,17 @@ docker container prune
 ```
 
 `prune` can also be called on `volume`, `network`, ...
+
+## build
+
+```
+docker build --rm -t trivaldock/php:latest .
+```
+
+publish:
+
+```
+docker login
+
+docker push trivaldock/php
+```
