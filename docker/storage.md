@@ -52,7 +52,8 @@ mount option:
 
 ## Comments
 
-alternative syntax for mounting exists: `-v` option. Using `--mount` is recommended by docker docs.
+alternative syntax for mounting exists: `-v` option. Using `--mount` is
+recommended by docker docs.
 
 ```
 -v my-vol:/app

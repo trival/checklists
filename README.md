@@ -1,3 +1,4 @@
 # checklists
 
-A personal collection of checklists and guides related to software development
+A personal collection of checklists, guides and resources related to software
+development.

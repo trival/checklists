@@ -24,6 +24,12 @@ docker exec myphp bin/gpm install antimatter
 docker run -it --rm -p 8080:8080 --name node8 --env PORT=8080 -w /app --mount type=bind,src="$PWD",dst=/app node:8-alpine sh
 ```
 
+to use the local yarn cache, add:
+
+```
+--mount type=bind,src=\"$(yarn cache dir)/..\",dst=\"/usr/local/share/.cache/yarn\"
+```
+
 ## Notes:
 
 - `--rm` removes the container after stop, so the name can be reused
