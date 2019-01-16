@@ -47,7 +47,7 @@ docker volume rm my-vol
 mount option:
 
 ```
---mount source=my-vol,trget=/app
+--mount source=my-vol,target=/app
 ```
 
 ## Comments
