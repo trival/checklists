@@ -33,7 +33,7 @@ config.vm.synced_folder "../data", "/vagrant_data"
 
 ### provision
 
-```
+```ruby
 config.vm.provision :shell, path: "bootstrap.sh"
 config.vm.provision :shell, :inline => "cd /root/dokku && make dokku-installer"
 
@@ -54,7 +54,7 @@ vagrant reload --provision
 
 ### config provider
 
-```
+```ruby
 config.vm.provider "virtualbox" do |v|
 	v.memory = 4096
 	v.cpus = 2
@@ -64,7 +64,7 @@ end
 
 ### ports and nets
 
-```
+```ruby
 config.vm.network "forwarded_port", guest: 8529, host: 8529
 config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
 ```
@@ -73,4 +73,14 @@ Share running box with public internet:
 
 ```
 vagrant share
+```
+
+### env vars
+
+```ruby
+BOX_NAME = ENV["BOX_NAME"] || "bento/ubuntu-14.04"
+
+Vagrant.configure("2") do |config|
+  config.vm.box = BOX_NAME
+end
 ```
