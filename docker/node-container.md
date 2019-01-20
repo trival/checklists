@@ -29,12 +29,17 @@ docker-compose up -d
 
 ```
 docker run \
-  -e "NODE_ENV=production" \
-  -u "node" \
-  -m "300M" --memory-swap "1G" \
-  -w "/home/node/app" \
-  --name "my-nodejs-app" \
-  node [script]
+	-e "NODE_ENV=production" \
+	-u "node" \
+	-m "300M" --memory-swap "1G" \
+	-w "/home/node/app" \
+	-v $(pwd):/home/node/app \
+	--name "my-nodejs-app" \
+	--init \
+	--rm \
+	-e PORT=3000 \
+	-p 8080:3000 \
+	node:8-alpine node [script]
 ```
 
 ## Best practices

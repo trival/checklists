@@ -69,3 +69,16 @@ temp?
 *.md
 !README.md
 ```
+
+## restart policies
+
+* `no`: Do not automatically restart the container. (the default)
+* `on-failure`: Restart the container if it exits due to an error, which manifests as a non-zero exit code.
+* `unless-stopped`: Restart the container unless it is explicitly stopped or Docker itself is stopped or restarted.
+* `always`: Always restart the container if it stops.
+
+```
+docker run --restart unless-stopped
+```
+
+`--restart` conflicts with `--rm`
