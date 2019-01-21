@@ -13,13 +13,13 @@ docker run -d --rm \
 
 runs locally at `localhost:8000`
 
----
-
 execute commands in running GRAV CMS app:
 
 ```
 docker exec myphp bin/gpm install antimatter
 ```
+
+---
 
 ## MySQL and phpMyAdmin
 
@@ -66,6 +66,8 @@ enter phpMyAdmin with
     host: mysql # equal to docker-compose service key
     user: root
     password: 12345
+
+---
 
 ## Nodejs local
 

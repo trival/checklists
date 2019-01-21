@@ -11,7 +11,9 @@ docker-compose down # stop and remove containers
 docker-compose down --volumes # stop and remove containers and volumes
 
 docker-compose ps
-docker-compose run myapp env
+docker-compose exec service_name env
+
+docker-compose logs
 ```
 
 ## docker-compose.yaml
