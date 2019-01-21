@@ -26,6 +26,13 @@ docker inspect container-name-or-id
 docker inspect container-name-or-id | grep "IPAddress"
 ```
 
+list all images:
+
+```
+docker images
+docker images -a
+```
+
 ## clear
 
 clear all idle containers
@@ -72,10 +79,12 @@ temp?
 
 ## restart policies
 
-* `no`: Do not automatically restart the container. (the default)
-* `on-failure`: Restart the container if it exits due to an error, which manifests as a non-zero exit code.
-* `unless-stopped`: Restart the container unless it is explicitly stopped or Docker itself is stopped or restarted.
-* `always`: Always restart the container if it stops.
+- `no`: Do not automatically restart the container. (the default)
+- `on-failure`: Restart the container if it exits due to an error, which
+  manifests as a non-zero exit code.
+- `unless-stopped`: Restart the container unless it is explicitly stopped or
+  Docker itself is stopped or restarted.
+- `always`: Always restart the container if it stops.
 
 ```
 docker run --restart unless-stopped
