@@ -1,5 +1,7 @@
 # Local Dokku development
 
+**!!! This does not work yet**, use Vagrant instead for local Dokku
+
 ## Installation process:
 
 Start with bash inside ubuntu:18.04 image:

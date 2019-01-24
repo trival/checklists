@@ -69,6 +69,31 @@ enter phpMyAdmin with
 
 ---
 
+## Postgres
+
+local test env setup
+
+```
+docker run -d --rm \
+  -p 5432:5432 \
+  -h postgres \
+  --name postgres \
+  -e POSTGRES_PASSWORD=12345 \
+  -v postgres_local:/var/lib/postgresql/data \
+  postgres
+
+docker run --rm -d \
+  -p 8080:80 \
+  --name pgadmin \
+  -v pgadmin_local:/var/lib/pgadmin \
+  -e "PGADMIN_DEFAULT_EMAIL=pgadmin@pg.com" \
+  -e "PGADMIN_DEFAULT_PASSWORD=12345" \
+  --link postgres \
+  dpage/pgadmin4
+```
+
+---
+
 ## Nodejs local
 
 ```
