@@ -94,6 +94,50 @@ docker run --rm -d \
 
 ---
 
+## MongoDB
+
+```yaml
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+    depends_on:
+      - mongo
+
+  admin-mongo:
+    image: mrvautin/adminmongo
+    restart: always
+    ports:
+      - 8082:8082
+    environment:
+      PORT: '8082'
+      HOST: '0.0.0.0' # important to access it on the outside
+      PASSWORD: 12345
+      DB_HOST: mongo
+      DB_USER: root
+      CONN_NAME: default
+      DB_PASSWORD: example
+    depends_on:
+      - mongo
+```
+
+---
+
 ## Nodejs local
 
 ```
