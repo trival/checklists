@@ -122,7 +122,8 @@ dokku config:set api \
   DATABASE_PASSWORD=b4066bcdcab83df2dce911ee6d090cf1 \
   DATABASE_HOST=dokku-mongo-mongo \
   DATABASE_NAME=mongo \
-  DATABASE_AUTHENTICATION_DATABASE=mongo
+  DATABASE_AUTHENTICATION_DATABASE=mongo \
+  APP_HOST=api.<your-domain.com>
 ```
 
 from a strapi dev project
@@ -159,6 +160,33 @@ chown -R 1000:1000 /var/lib/dokku/data/storage/api/uploads
 dokku storage:mount api /var/lib/dokku/data/storage/api/uploads:/home/node/app/public/uploads
 
 dokku ps:restart api
+```
+
+## Update
+
+on local dev system:
+
+```
+git remote add dokku master dokku@<your-domain.com>:api
+git push dokku master
+```
+
+make local changes using the admin gui. Restart local server after every change
+to persist changes.
+
+after all changes are done, push to dokku
+
+If datamode changed, remove `plugin_content-manager_schema` key from
+`core_store` collection in mongo db on remote server. Then restart api
+
+```
+ssh dokku@<your-domain.com> ps:start db-admin
+# make remote changes
+
+ssh dokku@<your-domain.com> ps:restart api
+
+# when you're done
+ssh dokku@<your-domain.com> ps:stop db-admin
 ```
 
 ## Debug
