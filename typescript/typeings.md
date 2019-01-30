@@ -13,3 +13,11 @@ interface IAnimalConstructor {
 
 type TAnimalConstructor = typeof Animal
 ```
+
+### declare missing module
+
+```typescript
+declare module '@storybook/addon-links' {
+	export function linkTo(s: string): void
+}
+```
