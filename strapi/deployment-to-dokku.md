@@ -207,3 +207,26 @@ enter api container
 ```
 dokku enter api web sh
 ```
+
+## frontend
+
+on local dev system:
+
+```
+git remote add dokku dokku@<your-domain.com>:www
+git push dokku master
+```
+
+### setup ports and ssl
+
+```bash
+
+# setup ports
+dokku proxy:ports-add www http:80:3000
+
+dokku config:set --no-restart www DOKKU_LETSENCRYPT_EMAIL=<e-mail>
+dokku letsencrypt www
+
+dokku proxy:ports-add www https:443:3000
+dokku proxy:ports-remove www http:3000:3000
+```
