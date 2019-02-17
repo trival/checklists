@@ -96,10 +96,15 @@ crontab -e
 5 5 * * * dokku letsencrypt:auto-renew >/dev/null 2>&1
 ```
 
+### change restart policy
+
+```
+dokku ps:set-restart-policy db-admin no
+```
+
 visit your database `https://db-admin.<your-domain.com>`
 
-IMPORTANT: for security reasons, don't forget to stop the admin once you are
-done with administration
+### IMPORTANT: for security reasons, don't forget to stop the admin once you are done with administration
 
 ```
 dokku ps:stop db-admin
@@ -162,12 +167,18 @@ dokku storage:mount api /var/lib/dokku/data/storage/api/uploads:/home/node/app/p
 dokku ps:restart api
 ```
 
+### change restart policy
+
+```
+dokku ps:set-restart-policy api always
+```
+
 ## Update
 
 on local dev system:
 
 ```
-git remote add dokku master dokku@<your-domain.com>:api
+git remote add dokku dokku@<your-domain.com>:api
 git push dokku master
 ```
 
