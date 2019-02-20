@@ -92,6 +92,30 @@ docker run --rm -d \
   dpage/pgadmin4
 ```
 
+or in docker-compose
+
+```yaml
+postgres:
+  image: postgres
+  posts:
+    - 5432:5432
+  environment:
+    - POSTGRES_PASSWORD: '12345'
+  volumes:
+    - postgres:/var/lib/postgresql/data
+
+pgadmin:
+  image: dpage/pgadmin4
+  restart: always
+  ports:
+    - 9090:80
+  volumes:
+    - pgadmin:/var/lib/pgadmin
+  environment:
+    - PGADMIN_DEFAULT_EMAIL=pgadmin@pg.com
+    - PGADMIN_DEFAULT_PASSWORD=12345
+```
+
 ---
 
 ## MongoDB
