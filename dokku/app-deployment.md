@@ -1,11 +1,38 @@
 # Dokku app deployment
 
-1. create valid Dockerfile.
+## Prerequisites
+
+Make shure that all ssh users are added to dokku (see troubleshooting below)
+
+```
+cat ~/.ssh/id_rsa.pub | ssh root@<dokku-domain.com> dokku ssh-keys:add KEY_NAME
+```
+
+Install usefull plugins (ssh as root)
+
+```
+dokku plugin:install https://github.com/dokku/dokku-letsencrypt.git
+dokku plugin:install https://github.com/dokku/dokku-redirect.git
+```
+
+set your email for letsencrypt
+
+```bash
+# global
+dokku config:set --global DOKKU_LETSENCRYPT_EMAIL=<e-mail>
+
+# or local
+dokku config:set --no-restart app-name DOKKU_LETSENCRYPT_EMAIL=<e-mail>
+```
+
+## App setup
+
+1. Create valid Dockerfile.
 
    Don't use EXPOSE \${PORT}. Dokku parses the sting after "EXPOSE" and uses as
    port.
 
-2. create a new app by pushing to dokku.
+2. Create a new app by pushing to dokku.
 
    ```
    git remote add dokku dokku@dokku.me:app-name
@@ -16,12 +43,45 @@
 
 3. SSH into dokku server
 
-4. set restart-policy to 'always' and restart to take effect
+4. Set restart-policy to 'always' and restart to take effect
 
    ```
    dokku ps:set-restart-policy app-name always
    dokku ps:restart app-name
    ```
+
+5. Set environment variables
+
+   ```bash
+   dokku config:set app-name \
+     SOME_VAR1=<some-value> \
+     SOME_VAR2=<some-value>
+   ```
+
+6. Add domains to your app
+
+   ```bash
+   dokku domains:set app-name your-domain.com
+   # add more if needed
+   dokku domains:add app-name www.your-domain.com
+   ```
+
+7. Configure network
+
+   ```bash
+   dokku proxy:ports-add app-name http:80:3000
+   dokku proxy:ports-remove app-name http:3000:3000
+   dokku letsencrypt app-name
+   dokku proxy:report
+
+   # maybe unneeded (added automatically by letsencrypt plugin)
+   # dokku proxy:ports-add db-admin https:443:8081
+
+   # optionally redirect to www
+   dokku redirect:set your-domain.com www.your-domain.com
+   ```
+
+   (add all domains before running letsencrypt, or repeat)
 
 ## Useful commands
 
@@ -29,6 +89,14 @@
 dokku apps:list
 dokku ps:report app-name
 dokku logs app-name
+```
+
+## Debug
+
+enter app container
+
+```
+dokku enter app-name web sh
 ```
 
 ## Troubleshooting

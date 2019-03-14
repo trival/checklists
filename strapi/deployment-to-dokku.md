@@ -156,7 +156,7 @@ dokku proxy:ports-remove api http:1337:1337
 
 ### add storage for uploads
 
-```
+```bash
 mkdir -p /var/lib/dokku/data/storage/api/uploads
 
 # change to the containers node user
@@ -171,6 +171,7 @@ dokku ps:restart api
 
 ```
 dokku ps:set-restart-policy api always
+dokku ps:restart api
 ```
 
 ## Update
@@ -185,10 +186,10 @@ git push dokku master
 make local changes using the admin gui. Restart local server after every change
 to persist changes.
 
-after all changes are done, push to dokku
+After all changes are done, push to dokku
 
-If datamode changed, remove `plugin_content-manager_schema` key from
-`core_store` collection in mongo db on remote server. Then restart api
+If datamodel changed, remove `plugin_content-manager_schema` key from
+`core_store` collection in mongo db on remote server. Then restart api.
 
 ```
 ssh dokku@<your-domain.com> ps:start db-admin
