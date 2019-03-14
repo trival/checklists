@@ -60,6 +60,8 @@ COPY --chown=1 files* /somedir/
 COPY --chown=10:11 files* /somedir/
 ```
 
+ignore files to copy with `.dockerignore` file.
+
 ## ADD
 
 same as `COPY`.

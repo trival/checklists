@@ -41,6 +41,7 @@ build:
   dockerfile: Dockerfile-name
   args:
     my_build_arg: 1 # Args accessible only during build, correspoinding to ARG Dockerfile instruction
+
 image: 'redis:alpine'
 
 # specify name, otherwise it is generated from project name and service key
