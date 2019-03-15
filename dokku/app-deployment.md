@@ -25,6 +25,13 @@ dokku config:set --global DOKKU_LETSENCRYPT_EMAIL=<e-mail>
 dokku config:set --no-restart app-name DOKKU_LETSENCRYPT_EMAIL=<e-mail>
 ```
 
+If you have git submodules inside your app container, you probably need to
+provide ssh keys for your git provider
+
+```
+dokku plugin:install https://github.com/cedricziel/dokku-deployment-keys.git deployment-keys
+```
+
 ## App setup
 
 1. Create valid Dockerfile.
