@@ -15,3 +15,11 @@ show content in terminal, don't download
 wget -qO- http://localhost:8082
 curl localhost:8081
 ```
+
+## SSH
+
+### Download a folder from remote system
+
+```bash
+scp -r user@host:/path/to/folder/ local-copy-of-folder
+```
