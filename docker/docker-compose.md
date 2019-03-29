@@ -60,7 +60,8 @@ environment:
 environment:
   - SERVICE_URL=http://serviceKey:8080 # string list notation
 
-# 'no', 'on-failure', unless-stopped', 'always'
+# '"no"', 'on-failure', unless-stopped', 'always'
+# default is "no"
 restart: always
 
 volumes:
