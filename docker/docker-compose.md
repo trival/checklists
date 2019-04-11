@@ -78,12 +78,12 @@ volumes:
 
 command: ["bundle", "exec", "thin", "-p", "3000"] # overrides CMD
 entrypoint: # also possible in yaml list form
-    - php
-    - -d
-    - zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20100525/xdebug.so
-    - -d
-    - memory_limit=-1
-    - vendor/bin/phpunit
+  - php
+  - -d
+  - zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20100525/xdebug.so
+  - -d
+  - memory_limit=-1
+  - vendor/bin/phpunit
 
 
 # define startup order

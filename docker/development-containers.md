@@ -6,9 +6,9 @@ see https://hub.docker.com/\_/httpd/ and https://hub.docker.com/\_/php/
 
 ```
 docker run -d --rm \
+  --name myphp \
   -p 8000:80 \
   -v "$PWD":/var/www/html trivaldock/php \
-  --name myphp \
 ```
 
 runs locally at `localhost:8000`
