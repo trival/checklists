@@ -29,6 +29,22 @@ Usefull serve options:
 
 ignore files to copy with `.dockerignore` file.
 
+```
+node_modules
+.DS_Store
+*.log
+.env
+
+src
+.editorconfig
+.prettierrc
+package.json
+tsconfig.json
+tslint.json
+types.d.ts
+yarn.lock
+```
+
 ## docker-compose.yml
 
 ```yaml

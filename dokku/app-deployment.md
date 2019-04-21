@@ -36,8 +36,8 @@ dokku plugin:install https://github.com/cedricziel/dokku-deployment-keys.git dep
 
 1. Create valid Dockerfile.
 
-   Don't use EXPOSE \${PORT}. Dokku parses the sting after "EXPOSE" and uses as
-   port.
+   Don't use `EXPOSE \${PORT}`. Dokku parses the sting after "EXPOSE" and uses
+   as port.
 
 2. Create a new app by pushing to dokku.
 
