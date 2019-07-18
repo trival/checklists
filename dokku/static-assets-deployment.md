@@ -1,5 +1,11 @@
 # deploy a static website to dokku
 
+## Static buildpack
+
+See: https://johnfraney.ca/posts/2019/03/01/build-deploy-static-site-dokku/
+
+Seems to be better than own Dockerfile with serve
+
 ## Dockerfile
 
 ```Dockerfile
@@ -45,7 +51,7 @@ types.d.ts
 yarn.lock
 ```
 
-## docker-compose.yml
+# docker-compose.yml for local development with the Dockerfile approach
 
 ```yaml
 version: '3'

@@ -25,6 +25,12 @@ dokku config:set --global DOKKU_LETSENCRYPT_EMAIL=<e-mail>
 dokku config:set --no-restart app-name DOKKU_LETSENCRYPT_EMAIL=<e-mail>
 ```
 
+add letsencrypt auto renew cron job
+
+```
+dokku letsencrypt:cron-job --add
+```
+
 If you have git submodules inside your app container, you probably need to
 provide ssh keys for your git provider
 
@@ -86,6 +92,9 @@ dokku plugin:install https://github.com/cedricziel/dokku-deployment-keys.git dep
 
    # optionally redirect to www
    dokku redirect:set your-domain.com www.your-domain.com
+
+   # enable aute-renew
+   dokku letsencrypt:auto-renew app-name
    ```
 
    (add all domains before running letsencrypt, or repeat)
