@@ -4,7 +4,29 @@
 
 See: https://johnfraney.ca/posts/2019/03/01/build-deploy-static-site-dokku/
 
-Seems to be better than own Dockerfile with serve
+1. Create the app
+
+   ```
+   dokku apps:create app-name
+   ```
+
+2. Specify host directory, if it is not the repository root, for example
+   `static`
+
+   ```
+   dokku config:set app-name NGINX_ROOT=/app/www/static
+   ```
+
+3. Add a empty `.static` file in the root of the repository
+
+4. If there is a package.json file, add a `.buildpacks` file to block automatic
+   nodejs app buildpack from starting, with following content:
+
+   ```
+   https://github.com/dokku/buildpack-nginx.git#v12
+   ```
+
+   get latest buildpack version from github
 
 ## Dockerfile
 
