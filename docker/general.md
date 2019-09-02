@@ -91,3 +91,13 @@ docker run --restart unless-stopped
 ```
 
 `--restart` conflicts with `--rm`
+
+## Some utils
+
+### Copy file from docker container to host
+
+```
+docker cp <containerId>:/file/path/within/container /host/path/target
+```
+
+works for files or directories
