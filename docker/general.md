@@ -19,6 +19,12 @@ execute a command inside a running Containers
 docker exec -it container-name command
 ```
 
+for example, run a bash shell inside the container
+
+```
+docker exec -it container-name bash
+```
+
 inspect container
 
 ```
