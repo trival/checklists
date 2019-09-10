@@ -172,8 +172,8 @@ secrets:
 
 ## System resource limits
 
-To limit system resources per service, you need to use version 2 of the
-docker-compose file.
+To limit system resources per service within a local `docker-compose up`, you
+need to use version 2 of the docker-compose file.
 
 ```yaml
 version: '2.4'
@@ -192,3 +192,5 @@ see
 https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources
 and
 https://docs.docker.com/engine/reference/run/#runtime-constraints-on-resources
+
+In version 3, resource limits only work for swarm deploys
