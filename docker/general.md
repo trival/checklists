@@ -107,3 +107,9 @@ docker cp <containerId>:/file/path/within/container /host/path/target
 ```
 
 works for files or directories
+
+### Show system resources used per container
+
+```
+docker stats
+```
