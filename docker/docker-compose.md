@@ -169,3 +169,26 @@ others
 configs:
 secrets:
 ```
+
+## System resource limits
+
+To limit system resources per service, you need to use version 2 of the
+docker-compose file.
+
+```yaml
+version: '2.4'
+services:
+  postgres:
+    image: postgres
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+    cpus: 0.7 # A fractional number. i.e. 0.7 = 70% of one core; 2.5 = two and a half cores
+    mem_limit: 1024m
+```
+
+see
+https://docs.docker.com/compose/compose-file/compose-file-v2/#cpu-and-other-resources
+and
+https://docs.docker.com/engine/reference/run/#runtime-constraints-on-resources
