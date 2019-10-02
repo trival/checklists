@@ -4,8 +4,12 @@
 
 2. Find installed plugins and update them
 
-```
-dokku plugin:list
-dokku plugin:update mongo
-dokku plugin:update letsencrypt
-```
+   **plugins are updated by `dokku-update` automatically**
+
+   in case you want to double check:
+
+   ```
+   dokku plugin:list
+   dokku plugin:update mongo
+   dokku plugin:update letsencrypt
+   ```
