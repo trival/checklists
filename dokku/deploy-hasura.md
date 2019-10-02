@@ -25,6 +25,8 @@ dokku config:set pgadmin PGADMIN_LISTEN_PORT=5000
 dokku tags:deploy pgadmin 4.13
 ```
 
+then add domain and letsencrypt
+
 !!IMPORTANT
 
 - Set a strong password
@@ -68,8 +70,8 @@ after setting variables, deploy hasura app
 dokku tags:deploy hasura 1.0.0.6
 ```
 
-## add domain for public access
+## add domain + letsencrypt for public access
 
-## alternatively, add network plugin
+## optionally, add network plugin
 
 See https://github.com/ithouse/dokku-connect-network/blob/master/README.md
