@@ -101,3 +101,18 @@ FROM node:alpine as app
 ## Copy built node modules and binaries without including the toolchain
 COPY --from=builder node_modules .
 ```
+
+## Tricks
+
+### Cache yarn in development mode
+
+```yaml
+services:
+  app:
+    build: .
+    volumes:
+      - yarn:/usr/local/share/.cache/yarn
+
+volumes:
+  yarn: #
+```
