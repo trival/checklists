@@ -107,12 +107,29 @@ dokku ps:report app-name
 dokku logs app-name
 ```
 
+### Deploy from a different local branch than master
+
+see:
+http://dokku.viewdocs.io/dokku/deployment/methods/git/#changing-the-deploy-branch
+
+```bash
+# where `SOME_BRANCH_NAME` is the name of the local branch
+git push dokku SOME_BRANCH_NAME:master
+```
+
 ## Debug
 
-enter app container
+## Enter app container
 
+```bash
+dokku enter app-name # if bash is available in the conainer
+dokku enter app-name web sh # for pure sh access
 ```
-dokku enter app-name web sh
+
+add bash to alpine images in Dockerfile if needed
+
+```Dockerfile
+RUN apk add bash
 ```
 
 ## Troubleshooting
