@@ -119,7 +119,7 @@ git push dokku SOME_BRANCH_NAME:master
 
 ## Debug
 
-## Enter app container
+### Enter app container
 
 ```bash
 dokku enter app-name # if bash is available in the conainer

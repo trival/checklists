@@ -1,14 +1,15 @@
 {
-  "extends": ["tslint:recommended", "tslint-config-standard", "tslint-config-prettier"],
+  "extends": [
+    "tslint:recommended",
+    "tslint-config-standard",
+    "tslint-config-prettier"
+  ],
   "rules": {
     "ordered-imports": true,
     "no-duplicate-variable": true,
     "no-unused-variable": true,
     "curly": [true, "ignore-same-line"],
-    "triple-equals": [
-      true,
-      "allow-null-check"
-    ],
+    "triple-equals": [true, "allow-null-check"],
     "no-var-keyword": true,
     "prefer-for-of": true,
     "prefer-const": true,
@@ -23,6 +24,7 @@
     "no-console": false,
     "one-variable-per-declaration": false,
     "no-bitwise": false,
-    "no-empty": false
+    "no-empty": false,
+    "radix": false
   }
 }
