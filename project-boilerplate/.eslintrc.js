@@ -84,5 +84,6 @@ module.exports = {
 		'no-use-before-define': 'off',
 		radix: 'off',
 		'consistent-return': 'off',
+		'guard-for-in': 'off',
 	},
 }
