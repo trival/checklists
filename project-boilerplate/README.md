@@ -2,7 +2,7 @@
 
 contains files that can be copied into any new project.
 
-to get the initial setup working, run:
+to get the initial react setup working, run:
 
 ```
 yarn add -D prettier \
@@ -14,6 +14,18 @@ yarn add -D prettier \
     eslint-plugin-jsx-a11y \
     eslint-plugin-react \
     eslint-plugin-react-hooks \
+    @typescript-eslint/eslint-plugin \
+    @typescript-eslint/parser
+```
+
+to get the initial pure-js setup working, run:
+
+```
+yarn add -D prettier \
+    eslint \
+    eslint-config-prettier \
+    eslint-plugin-import \
+    eslint-plugin-prettier \
     @typescript-eslint/eslint-plugin \
     @typescript-eslint/parser
 ```
