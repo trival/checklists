@@ -13,6 +13,7 @@ Install usefull plugins (ssh as root)
 ```
 dokku plugin:install https://github.com/dokku/dokku-letsencrypt.git
 dokku plugin:install https://github.com/dokku/dokku-redirect.git
+dokku plugin:install https://github.com/dokku/dokku-http-auth.git
 ```
 
 set your email for letsencrypt
@@ -95,6 +96,9 @@ dokku plugin:install https://github.com/cedricziel/dokku-deployment-keys.git dep
 
    # enable aute-renew
    dokku letsencrypt:auto-renew app-name
+
+   # optional: enable basic http auth
+   dokku http-auth:on app-name username password
    ```
 
    (add all domains before running letsencrypt, or repeat)
