@@ -13,6 +13,7 @@ module.exports = {
 	extends: [
 		'plugin:@typescript-eslint/eslint-recommended',
 		'plugin:@typescript-eslint/recommended',
+		'plugin:@typescript-eslint/recommended-requiring-type-checking',
 		'prettier',
 		'prettier/@typescript-eslint',
 	],
@@ -52,7 +53,15 @@ module.exports = {
 		'@typescript-eslint/explicit-function-return-type': 'off',
 		// '@typescript-eslint/camelcase': 'off',
 		'@typescript-eslint/no-non-null-assertion': 'off',
-		'@typescript-eslint/no-unused-vars': 'warn',
+		'@typescript-eslint/no-unused-vars': [
+			'warn',
+			{
+				args: 'after-used',
+				ignoreRestSiblings: true,
+				argsIgnorePattern: '^_',
+				varsIgnorePattern: '^_',
+			},
+		],
 		'@typescript-eslint/no-use-before-define': 'off',
 
 		'no-unused-expressions': [
@@ -61,7 +70,6 @@ module.exports = {
 		],
 		'no-plusplus': 'off',
 		'no-restricted-syntax': 'off',
-		'no-unused-vars': 'off',
 		'no-console': 'warn',
 		'no-underscore-dangle': 'off',
 		'no-case-declarations': 'off',

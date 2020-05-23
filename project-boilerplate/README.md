@@ -7,7 +7,7 @@ to get the initial react setup working, run:
 ```
 yarn add -D prettier \
     eslint \
-    eslint-config-airbnb \
+    eslint-config-airbnb-typescript \
     eslint-config-prettier \
     eslint-plugin-import \
     eslint-plugin-prettier \
